@@ -1,9 +1,9 @@
 <template>
   <div class="header">
       <div class="header_top">
-          <i>11</i>
+          <i class="iconfont menu">&#xe65c;</i>
           <span>云音悦</span>
-          <i @click="search">22</i>
+          <i @click="search" class="search iconfont">&#xe62b;</i>
       </div>
       <div class="header_bottom">
           <div class="header_bottom_tab">
@@ -59,6 +59,14 @@ export default {
         align-items:center;
         height: 60px;
         border-bottom: 0.5px solid #fff;
+        .menu {
+          font-size: 25px;
+          color: #fff;
+        }
+        .search {
+           font-size: 25px;
+           color: #fff;
+        }
         span{
             font-size: 20px;
             margin: 0 auto;
