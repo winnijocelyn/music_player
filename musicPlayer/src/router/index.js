@@ -9,6 +9,7 @@ const Singer = () => import('@/views/Singer')
 const RankingList = () => import('@/views/RankingList')
 const Search = () => import('@/views/Search')
 const Header = () => import('@/layout/header')
+const Swiper = () => import('@/shares/components/Swiper')
 export default new Router({
   routes: [
     {
@@ -45,6 +46,11 @@ export default new Router({
       path: '/Header',
       name: 'Header',
       component: Header
+    },
+    {
+      path: '/Swiper',
+      name: 'Swiper',
+      component: Swiper
     }
   ]
 })
