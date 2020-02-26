@@ -1,10 +1,11 @@
 <template>
   <div class="rankingList">
     rankingList
+
   </div>
 </template>
-
 <script>
+
 export default {
   methods: {
     jump () {
@@ -12,6 +13,7 @@ export default {
     }
 
   }
+
 }
 </script>
 

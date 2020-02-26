@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
-const HelloWorld = () => import('@/views/HelloWorld')
 const Home = () => import('@/views/Home')
 const Recommend = () => import('@/views/Recommend')
 const Singer = () => import('@/views/Singer')
@@ -12,11 +11,6 @@ const Header = () => import('@/layout/header')
 const Swiper = () => import('@/shares/components/Swiper')
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
     {
       path: '/Home',
       name: 'Home',

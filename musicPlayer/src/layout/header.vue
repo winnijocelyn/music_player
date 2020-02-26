@@ -5,8 +5,8 @@
           <span>云音悦</span>
           <i @click="search" class="search iconfont">&#xe62b;</i>
       </div>
-      <div class="header_bottom">
-          <div class="header_bottom_tab">
+      <div class="header_bottom" ref="wrapper">
+          <div class="header_bottom_tab" >
             <span  @click="tab('Recommend')" :class="this.subassembly=='Recommend'?'header_bottom_active':''">推荐</span>
             <span @click="tab('Singer')" :class="this.subassembly=='Singer'?'header_bottom_active':''">歌手</span>
             <span  @click="tab('RankingList')" :class="this.subassembly=='RankingList'?'header_bottom_active':''">排行榜</span>
@@ -21,6 +21,7 @@ const Recommend = () => import('../views/Recommend')
 const Singer = () => import('../views/Singer')
 const RankingList = () => import('../views/RankingList')
 export default {
+
   name: 'Header',
   data () {
     return {
@@ -58,7 +59,6 @@ export default {
         justify-content:space-around;
         align-items:center;
         height: 60px;
-        border-bottom: 0.5px solid #fff;
         .menu {
           font-size: 25px;
           color: #fff;
@@ -74,6 +74,8 @@ export default {
             }
     }
     &_bottom{
+        width: 100vw;
+        padding: 5px;
         &_tab{
         display: flex;
         flex-direction: row;
@@ -84,7 +86,8 @@ export default {
         }
         &_active{
             font-weight: 700;
-            border-bottom: 1px solid #fff;
+            padding: 0 0 3px 0;
+            border-bottom: 2px solid #fff;
         }
         &_content{
             margin-top: 12px;

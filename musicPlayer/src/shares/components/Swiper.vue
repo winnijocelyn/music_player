@@ -8,7 +8,7 @@
       :style="{width: itemWidth + 'px'}"
       :class="[index===ind?'active':'', effect]"
       @click="handleClick(item)">
-        <img :src="item.src">
+        <img :src="item.src" class="img">
       </li>
     </ul>
     <div v-show="options.showDots" class="swiper-dots">
@@ -24,7 +24,7 @@
 export default {
   data () {
     return {
-      ulStyle: { width: '750px', paddingLeft: '20px' }, // 轮播图容器宽度
+      ulStyle: { width: '750px', paddingLeft: '10px' }, // 轮播图容器宽度
       itemWidth: 750, // 单个轮播图容器的宽度，默认屏幕宽度,
       swiperStyle: {}, // 控制轮播的样式
       index: 0, // 当前显示的轮播图索引，默认第一张
@@ -40,89 +40,19 @@ export default {
     },
     options: {
       type: Object,
-      // eslint-disable-next-line vue/require-valid-default-prop
-      default: {
-        showDots: true, // 是否显示分页器
-        interval: 3000, // 轮播间隔时间，默认3s
-        autoplay: true, // 是否自动播放
-        loop: false // 是否循环轮播
+      default: () => {
+        return {
+          showDots: true, // 是否显示分页器
+          interval: 2000, // 轮播间隔时间，默认2s
+          autoplay: true, // 是否自动播放
+          loop: false // 是否循环轮播
+        }
       }
     },
     list: {
       type: Array,
       default: () => {
-        return [
-          {
-            id: 1,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/1.jpg'
-          },
-          {
-            id: 2,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/2.jpg'
-          },
-          {
-            id: 3,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/3.jpg'
-          },
-          {
-            id: 4,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/4.jpg'
-          },
-          {
-            id: 5,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/5.jpg'
-          },
-          {
-            id: 6,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/6.jpg'
-          },
-          {
-            id: 7,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/7.jpg'
-          },
-          {
-            id: 8,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/8.jpg'
-          },
-          {
-            id: 9,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/9.jpg'
-          },
-          {
-            id: 10,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/10.jpg'
-          },
-          {
-            id: 11,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/11.jpg'
-          },
-          {
-            id: 12,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/12.jpg'
-          },
-          {
-            id: 13,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/13.jpg'
-          },
-          {
-            id: 14,
-            src:
-              'https://raw.githubusercontent.com/zhangxiaoshang/va-carousel/master/static/images/14.jpg'
-          }
-        ]
+        return []
       }
     },
     effect: {
@@ -167,7 +97,7 @@ export default {
       if (this.effect === 'normal') {
         this.ulStyle.paddingLeft = 0 // 将起始位置左侧的padding置为0
       } else if (this.effect === 'zoom') {
-        this.ulStyle.paddingLeft = '20px' // 保证左侧有一定的位移
+        this.ulStyle.paddingLeft = '10px' // 保证左侧有一定的位移
       }
     },
     /**
@@ -181,7 +111,7 @@ export default {
       } else {
         this.ulStyle.paddingLeft = 0 // 将起始位置左侧的padding置为0
         if (this.effect === 'zoom') {
-          moveX = moveX - 20
+          moveX = moveX - 10
         }
       }
       this.swiperStyle = {
@@ -251,6 +181,7 @@ export default {
 
 <style lang="less" scope>
 .swiper-component {
+  margin: 0 auto;
   overflow: hidden;
   height: 3rem;
   position: relative;
@@ -294,5 +225,6 @@ export default {
       }
     }
   }
+  
 }
 </style>
